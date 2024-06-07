@@ -1,0 +1,13 @@
+git clone https://github.com/infracloudio/csvserver.git
+cd csvserver/
+vi gencsv.sh
+chmod +x gencsv.sh
+./gencsv.sh 2 8
+cat inputFile
+apt  install docker.io
+sudo apt update -y
+apt list --upgradable
+systemctl enable docker
+docker pull infracloudio/csvserver:latest
+docker run -d --name csvserver -p 9393:9300 -e CSVSERVER_BORDER=Orange -v "$(pwd)/inputFile:/csvserver/inputdata" infracloudio/csvserver:latest
+docker ps
